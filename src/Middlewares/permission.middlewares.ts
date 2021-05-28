@@ -1,7 +1,7 @@
-import * as jwt from 'jsonwebtoken'
+import jwt from 'jsonwebtoken'
 const PRIVATE_KEY = process.env.PRIVATE_KEY
 
-module.exports = (req, res, next) => {
+const middleware = (req, res, next) => {
     if (req.headers.authorization) {
         let token = req.headers.authorization
 
@@ -16,3 +16,5 @@ module.exports = (req, res, next) => {
     } 
     else return res.json({code: 404, status: "failed", error: "you must attach token with the request."})
 }
+
+export default middleware

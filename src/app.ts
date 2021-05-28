@@ -1,5 +1,7 @@
-import * as express from 'express'
-
+import express from 'express'
+import bookRouter from './Book/book.router'
+import {createConnection} from 'typeorm'
+import "reflect-metadata"
 
 class App {
     private app: express.Application
@@ -23,7 +25,21 @@ class App {
     }
 
     private dbConnect() {
+        // let con = mysql.createConnection({
+        //     host: "localhost",
+        //     user: "root",
+        //     password: ""
+        // })
         
+        // con.connect(function(err) {
+        //     if (err) console.log(err)
+        //     else console.log("Connected")            
+            
+        // })
+
+        createConnection().then(connection => {    
+            console.log("Connected!");
+        }).catch(error => console.log("TypeORM connection error: ", error));
     }
 
     public startApp = (port: number) => {

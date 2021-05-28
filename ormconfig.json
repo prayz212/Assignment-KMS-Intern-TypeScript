@@ -1,0 +1,13 @@
+{
+    "type": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "username": "root",
+    "password": "",
+    "database": "assignment",
+    "entities": [
+        "dist/src/Book/book.model.js"
+    ],
+    "synchronize": true,
+    "logging": false
+}
