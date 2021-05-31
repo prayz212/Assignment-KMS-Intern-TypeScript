@@ -1,12 +1,14 @@
 {
     "type": "mysql",
-    "host": "localhost",
+    "host": "172.16.33.4",
     "port": 3306,
     "username": "root",
     "password": "",
     "database": "assignment",
     "entities": [
-        "dist/src/Book/book.model.js"
+        "dist/src/Book/book.model.js",
+        "dist/src/User/user.model.js",
+        "dist/src/User/active-code.model.js"
     ],
     "synchronize": true,
     "logging": false
