@@ -1,7 +1,10 @@
 import jwt from 'jsonwebtoken'
+import * as dotenv from 'dotenv'
+
+dotenv.config()
 const PRIVATE_KEY = process.env.PRIVATE_KEY
 
-const middleware = (req, res, next) => {
+export const middleware = (req, res, next) => {
     if (req.headers.authorization) {
         let token = req.headers.authorization
 
@@ -16,5 +19,3 @@ const middleware = (req, res, next) => {
     } 
     else return res.json({code: 404, status: "failed", error: "you must attach token with the request."})
 }
-
-export default middleware

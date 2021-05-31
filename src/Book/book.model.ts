@@ -20,16 +20,18 @@ export class Book extends BaseEntity {
     @Column()
     total_page: number;
 
-    @Column()
-    date: number;
+    @Column({
+        type: 'timestamp',
+        default: () => "CURRENT_TIMESTAMP"
+    })
+    date: string;
 
-    constructor( name: string, author: string, description: string, page: number, date: number ) {
+    constructor( name: string, author: string, description: string, page: number ) {
         super();
         
         this.name = name
         this.author = author
         this.description = description
         this.total_page = page
-        this.date = date
     }
 }
